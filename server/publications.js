@@ -4,5 +4,5 @@ Meteor.publish('reviews', ((filter)=> {
 }));
 
 Meteor.publish('review', ((id)=> {
-  return Reviews.find({_id: id});
+  return Reviews.findOne({_id: id});
 }));
