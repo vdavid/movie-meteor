@@ -101,6 +101,7 @@ Reviews.attachSchema(new SimpleSchema({
 
 Meteor.methods({
   initializeDatabase() {
+    //noinspection SpellCheckingInspection
     Reviews.insert({
       _id: 'dummy-review-1',
       watchDate: Date.parse('2014-06-02'),
@@ -120,6 +121,7 @@ Meteor.methods({
         rating: 7.9
       }
     });
+    //noinspection SpellCheckingInspection
     Reviews.insert({
       _id: 'dummy-review-2',
       watchDate: Date.parse('2014-05-19'),

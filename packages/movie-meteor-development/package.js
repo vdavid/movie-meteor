@@ -13,13 +13,16 @@ Package.describe({
 
 Package.onUse(function (api) {
   api.versionsFrom('1.2.1');
+  //noinspection SpellCheckingInspection
   api.use('ecmascript');
   api.addFiles('movieMeteorDevelopment.js');
   api.addFiles('fillDatabaseWithDummyData.js');
 });
 
 Package.onTest(function (api) {
+  //noinspection SpellCheckingInspection
   api.use('ecmascript');
+  //noinspection SpellCheckingInspection
   api.use('tinytest');
   api.use('movie-meteor-development');
   api.addFiles('tests/movieMeteorDevelopment.js');
