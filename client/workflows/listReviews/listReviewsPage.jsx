@@ -1,9 +1,3 @@
-const { AppBar, IconButton, IconMenu, LeftNav, RaisedButton } = mui;
-const { MenuItem } = mui.Menus;
-const { NavigationMoreVert } = mui.SvgIcons;
-const Styles = mui.Styles;
-const Colors = Styles.Colors;
-
 ListReviewsPage = React.createClass({
   mixins: [ReactMeteorData],
 
@@ -49,7 +43,18 @@ ListReviewsPage = React.createClass({
   render() {
     return (
       <section className="reviewList page">
-        <RaisedButton label="Default"/>
+        <mui.AppBar
+          title="Movie Meteor"
+          iconElementLeft={<mui.IconButton><mui.SvgIcons.NavigationClose /></mui.IconButton>}
+          iconElementRight={
+    <mui.IconMenu iconButtonElement={
+      <mui.IconButton><mui.SvgIcons.NavigationMoreVert /></mui.IconButton>
+    }>
+      <mui.Menus.MenuItem primaryText="Refresh" />
+      <mui.Menus.MenuItem primaryText="Help" />
+      <mui.Menus.MenuItem primaryText="Sign out" />
+    </mui.IconMenu>
+        }/>
         <div>
           <input placeholder="Search by title" onChange={this.search}/>
         </div>

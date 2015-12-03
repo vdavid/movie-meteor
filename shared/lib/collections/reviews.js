@@ -92,6 +92,10 @@ Reviews.attachSchema(new SimpleSchema({
     min: 0,
     max: 10,
     optional: true
+  },
+  'imdbData.posterUrl': {
+    type: String,
+    optional: true
   }
 }));
 

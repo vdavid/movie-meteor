@@ -3,14 +3,9 @@ ReviewList = React.createClass({
     if (this.props.reviews.length) {
       return (
         <div>
-          <ul>
-            { this.props.reviews.map((review) => {
-              return (
-              <li key={review._id}>
-                <div>{review.title}</div>
-              </li>)})
-              }
-          </ul>
+          { this.props.reviews.map((review) => {
+            return <Review key={review._id} review={review} />;
+            })}
         </div>
       );
     } else {
