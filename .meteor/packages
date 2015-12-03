@@ -24,3 +24,6 @@ accounts-google
 aldeed:collection2
 reactjs:react
 service-configuration
+meteorhacks:npm
+npm-container
+cosmos:browserify
