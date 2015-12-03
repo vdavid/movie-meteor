@@ -1,4 +1,5 @@
-if (Reviews.find().count() === 0) {
+console.log('pina');
+if (typeof Meteor.user() !== 'undefined') {
   Reviews.insert({
     _id: 'dummy-review-1',
     watchDate: Date.parse('2014-06-02'),
