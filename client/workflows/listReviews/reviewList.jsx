@@ -1,6 +1,6 @@
 ReviewList = React.createClass({
   render() {
-    if (this.props.reviews.count) {
+    if (this.props.reviews.length) {
       return (
         <div>
           <ul>

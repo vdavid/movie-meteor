@@ -9,22 +9,29 @@ ListReviewsPage = React.createClass({
 
   getInitialState() {
     return {
-      filter: {
+      filters: {
         title: ''
       }
     };
   },
 
   getMeteorData() {
-    let filter = {};
+    let data = {};
+    /* Load reviews from server asynchronously */
+    let handle = Meteor.subscribe('reviews');
+    if (handle.ready()) {
+      let mongoFilters = {};
+      if (this.state.filters.title) {
+        mongoFilters.title = {$regex: '.*' + this.state.filters.title + '.*'}
+      }
 
-    if (this.state.filter.title) {
-      filter.title = {$regex: '.*' + this.state.filter.title + '.*'}
+      if (!Reviews.find().count()) {
+        Meteor.call('initializeDatabase');
+      }
+      data.reviews = Reviews.find(mongoFilters).fetch();
     }
 
-    return {
-      reviews: Reviews.find(filter).fetch()
-    };
+    return data;
   },
 
   search(event){
@@ -42,11 +49,11 @@ ListReviewsPage = React.createClass({
   render() {
     return (
       <section className="reviewList page">
-        <RaisedButton label="Default" />
+        <RaisedButton label="Default"/>
         <div>
           <input placeholder="Search by title" onChange={this.search}/>
         </div>
-        <ReviewList reviews={this.data.reviews}/>
+        <ReviewList reviews={this.data.reviews || []}/>
       </section>
     );
   }
