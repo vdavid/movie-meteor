@@ -22,8 +22,6 @@ kadira:react-layout
 accounts-ui
 accounts-google
 aldeed:collection2
-reactjs:react
 service-configuration
+markoshust:material-ui
 meteorhacks:npm
-npm-container
-cosmos:browserify

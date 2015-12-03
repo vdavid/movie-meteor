@@ -1,1 +1,0 @@
-MaterialUI = require('material-ui');

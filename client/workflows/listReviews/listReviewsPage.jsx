@@ -1,4 +1,8 @@
-const RaisedButton = MaterialUI.RaisedButton;
+const { AppBar, IconButton, IconMenu, LeftNav, RaisedButton } = mui;
+const { MenuItem } = mui.Menus;
+const { NavigationMoreVert } = mui.SvgIcons;
+const Styles = mui.Styles;
+const Colors = Styles.Colors;
 
 ListReviewsPage = React.createClass({
   mixins: [ReactMeteorData],
