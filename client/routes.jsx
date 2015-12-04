@@ -18,3 +18,10 @@ FlowRouter.route('/review/edit/:reviewId', {
     ReactLayout.render(App, {content: <EditReviewPage {...params} />});
   }
 });
+
+FlowRouter.route('/about', {
+  name: 'about',
+  action() {
+    ReactLayout.render(App, {content: <AboutPage />});
+  }
+});

@@ -40,20 +40,50 @@ ListReviewsPage = React.createClass({
     return Reviews.findOne({_id: id}, {reactive: false});
   },
 
+  refreshData() {
+
+  },
+
+  viewAboutPage() {
+    FlowRouter.go("about");
+  },
+
+  signOut() {
+    Meteor.logout();
+  },
+
+  closeApp() {
+    navigator.app.exitApp();
+  },
+
   render() {
+    let appBarAttributes = {};
+    if (Meteor.isCordova) {
+      appBarAttributes.iconElementLeft =
+        <mui.IconButton onClick={this.closeApp}>
+          <mui.SvgIcons.NavigationClose />
+        </mui.IconButton>;
+    } else { // TODO: Remove icon
+      appBarAttributes.iconElementLeft =
+        <mui.IconButton onClick={this.closeApp}>
+          <mui.SvgIcons.NavigationClose />
+        </mui.IconButton>;
+    }
+
     return (
-      <section className="reviewList page">
+      <section>
         <mui.AppBar
           title="Movie Meteor"
-          iconElementLeft={<mui.IconButton><mui.SvgIcons.NavigationClose /></mui.IconButton>}
+          {...appBarAttributes}
           iconElementRight={
-    <mui.IconMenu iconButtonElement={
-      <mui.IconButton><mui.SvgIcons.NavigationMoreVert /></mui.IconButton>
-    }>
-      <mui.Menus.MenuItem primaryText="Refresh" />
-      <mui.Menus.MenuItem primaryText="Help" />
-      <mui.Menus.MenuItem primaryText="Sign out" />
-    </mui.IconMenu>
+            <mui.IconMenu iconButtonElement={
+              <mui.IconButton><mui.SvgIcons.NavigationMoreVert /></mui.IconButton>
+            }>
+              <mui.Menus.MenuItem primaryText="Refresh" onClick={this.refreshData} onMenuIconButtonTouchTap={this.refreshData} />
+              <mui.Menus.MenuDivider />
+              <mui.Menus.MenuItem primaryText="About" onClick={this.viewAboutPage} onMenuIconButtonTouchTap={this.viewAboutPage} />
+              <mui.Menus.MenuItem primaryText="Sign out" onClick={this.signOut} onMenuIconButtonTouchTap={this.signOut} />
+            </mui.IconMenu>
         }/>
         <div>
           <input placeholder="Search by title" onChange={this.search}/>
