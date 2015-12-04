@@ -1,4 +1,4 @@
-Reviews = new Mongo.Collection('reviews');
+Reviews = new Ground.Collection('reviews');
 
 //noinspection JSUnusedGlobalSymbols
 Reviews.attachSchema(new SimpleSchema({
