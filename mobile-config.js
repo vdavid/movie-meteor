@@ -1,3 +1,11 @@
+App.info({
+  id: 'com.veszelovszki.movie-meteor',
+  name: 'Movie Meteor',
+  description: 'Movie review storage application.',
+  version: "0.2",
+  author: 'David Veszelovszki'
+});
+
 App.icons({
   // iOS
   'iphone': 'resources/icons/movie-meteor-logo-60x60.png',
